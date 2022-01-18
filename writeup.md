@@ -18,20 +18,24 @@
 ### 1. Write a short recap of the four tracking steps and what you implemented there (filter, track management, association, camera fusion). Which results did you achieve? Which part of the project was most difficult for you to complete, and why?
 
 Filter:
+
 Initialized Extended Kalman Filter. Initialized model matrix F() and covariance matrix Q(), to calculate the constant velocity. Implemented the residual and residual covariance.  
 The measurement function evaluated at the current state, h(x), and the Jacobian H. Takes and updates state covariance matrix P in track object.
 
 Track management:
+
 Manage track list by updating old tracks, creating new tracks or deleting ghost tracks. Initialize empty track list(last=-1, numberoftracks=0). Take unassigned track list and drop the unassigned track score. Loop through all tracks in the list to decide if the track needs to be deleted based on track state, track covariance matrix P and the track score. Create new tracks from the unassigned measurement list.
 
 Assocation:
+
 Update unassigned track list, unassigned measurement list and match measurements to corresponding track. First intialized with an empty unassigned track list, association matrix, and measurement list. The track list from track management and sensor management are matched. Nearest neighbor. RMSE plot. 
 
 Camera Fusion:
+
 Camera measurements to update State X and state covariance matrix P. Produce output video.
 
 ### What part was the most difficult?
-The part that was the most difficult was track management. I had multiple ghost tracks and I was not deleting initialized tracks.
+Correcting visualizations and code. Had Udacity virtual machine issues. The part that was the most difficult was track management. I had multiple ghost tracks and I was not deleting initialized tracks.
 
 
 ### 2. Do you see any benefits in camera-lidar fusion compared to lidar-only tracking (in theory and in your concrete results)? 
